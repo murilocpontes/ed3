@@ -10,8 +10,6 @@ void data_insertion(char* address, int numberOfEntrys){
         return;
     }
     for(int i=0;i < numberOfEntrys; i++){
-        if(i == 187)
-            printf("alo\n");
         //colecting entry data
          data_collect(data);
         //inserting entry to binary file
@@ -22,13 +20,13 @@ void data_insertion(char* address, int numberOfEntrys){
 }
 
 void data_collect(entry* tmpEntry){
-    char* input = (char*)calloc(20, sizeof(char));
+    char* input = (char*)calloc(65, sizeof(char));
 
     readline(input);
     tmpEntry->SPECIES_ID = atoi(input);
 
     readline(tmpEntry->NAME);
-    // strcpy(tmpEntry->NAME, input);
+    // strcpy(tmpEntry->NAME, input);g
 
     readline(tmpEntry->SCIENTIFIC_NAME);
     // strcpy(tmpEntry->SCIENTIFIC_NAME, input);
@@ -152,7 +150,7 @@ entry get_rrn_data(int rrn, char* address, int* flag){
 
 void update_data(char* address){
     FILE* file = fopen(address, "rb+");
-    char* input = (char*)calloc(20, sizeof(char));
+    char* input = (char*)calloc(65, sizeof(char));
     int id, n, flag = 0;
     if(file == NULL){
         printf("Falha no processamento do arquivo\n");
@@ -240,20 +238,20 @@ void update_population(FILE* file, int id){
 }
 
 void update_status(FILE* file, int id){
-    char* file_info = (char*)calloc(20, sizeof(char));
+    char* file_info = (char*)calloc(65, sizeof(char));
     char* input = (char*)calloc(20, sizeof(char));
     readline(input);
     fseek(file, ENTRY_OFFSET - 21, SEEK_CUR);
     fread(file_info, 9, sizeof(char),file);
     if(strcmp(file_info, "NULO") != 0){
         printf("Informação já inserida no arquivo\n");
-        fseek(file, 21 - ENTRY_OFFSET, SEEK_CUR);
+        fseek(file, 12 - ENTRY_OFFSET , SEEK_CUR);
         return;
     }
     fseek(file, -9, SEEK_CUR);
     fwrite(input, sizeof(char), strlen(input) + 1, file);
     fwrite("$", sizeof(char), 9 - strlen(input) - 1, file);
-    fseek(file, sizeof(int) - ENTRY_OFFSET, SEEK_CUR); 
+    fseek(file, 12 - ENTRY_OFFSET, SEEK_CUR); 
     free(input);
     free(file_info);
 }

@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/bin/ex-pratico-1",  // caminho do executável
-            "args": ["<", "arquivos/Casos de Teste/in/11.in"],
+            "args": ["<", "arquivos/Casos de Teste/in/10.in", ">", "10.my"],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
             "environment": [],

@@ -7,7 +7,7 @@
 
 int main(){
     int menu;
-    char* input = (char*)calloc(40, sizeof(char));
+    char* input = (char*)calloc(65, sizeof(char));
     char* address = (char*)calloc(20, sizeof(char));
     char* tmp;
     readline(input);
@@ -15,6 +15,8 @@ int main(){
     menu = atoi(tmp);
     tmp = strtok(NULL, " ");
     strcpy(address, tmp);
+    tmp = strstr(address, ".bin");
+    tmp[4] = '\0';
 
     switch(menu){
         default:{

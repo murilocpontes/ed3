@@ -13,7 +13,7 @@ void readline(char* string) {
         string[i] = c;
         i++;
         c = getchar();
-    } while (c != '\n' && c != '\r');
+    } while (c != '\n' && c != '\r' && i < 60);
 
     string[i] = '\0';
 }

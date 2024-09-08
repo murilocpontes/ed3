@@ -8,7 +8,7 @@ SRC = ./src
 OBJS = $(OBJ)/funcoesFornecidas.o $(OBJ)/my-lib.o
 
 # Flags de compilação com suporte ao GDB
-CFLAGS = -g -Wall -Wpedantic -I $(INCLUDE) 
+CFLAGS = -g -I $(INCLUDE) 
 
 all: $(BIN)/ex-pratico-1
 
@@ -28,6 +28,7 @@ $(OBJ)/my-lib.o: $(SRC)/my-lib.c $(INCLUDE)/my-lib.h
 run:
 	$(BIN)/ex-pratico-1
 
+	
 # Regra para rodar no GDB
 debug: $(BIN)/ex-pratico-1
 	gdb $(BIN)/ex-pratico-1
