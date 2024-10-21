@@ -1,3 +1,9 @@
 [submodule "trab1"]
 	path = trab1
 	url = https://github.com/murilocpontes/poo-trab1.git
+[submodule "ed3-trab2"]
+	path = ed3-trab2
+	url = https://github.com/murilocpontes/ed3-trab2.git
+[submodule "trab2"]
+	path = trab2
+	url = https://github.com/murilocpontes/ed3-trab2.git
